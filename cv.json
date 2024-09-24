@@ -29,29 +29,37 @@
   },
   "work": [
     {
-      "name": "midudev",
-      "position": "Divulgador sobre Programación Web",
-      "url": "https://twitch.tv/midudev",
-      "startDate": "2021-01-01",
+      "name": "CSTI - Culqi",
+      "position": "Backend Developer",
+      "url": "https://afiliate.culqi.com/",
+      "startDate": "2023-09-01",
       "endDate": null,
-      "summary": "Streamer de programación más visto en Español en Twitch. +1 millón de seguidores entre todas mis redes sociales. Reconocido por Google, Microsoft y GitHub por mi impacto en la comunidad de desarrolladores.",
+      "summary": "Culqi es una de las pasarelas de pago mas importante del pais. Y mi mision fue desarrollar nuevas funcionalidades para la pasarela de pagos, la cual sera compartida con otra empresa importante en el rubro bancario y asi poder brindar una mejor experiencia de pago para los clientes. El servicio de pagos atravez de links es mi principal proyecto.",
+      "highlights": ["Principal desarrollador del proyecto"]
+    },
+    {
+      "name": "PDM Monitor",
+      "position": "Freelance Fullstack Developer",
+      "url": "https://www.pdmmonitor.com",
+      "startDate": "2021-05-01",
+      "endDate": null,
+      "summary": "PDM monitor es una plataforma de monitoreo sobre el analisis de vibraciones. Aqui me encargo de desarrollar nuevas funcionalidades para que un experto en analisis de vibraciones pueda tomar las mejores decisiones al momento de realizar mantenimientos predictivos.",
       "highlights": ["Started the company"]
     },
     {
-      "name": "Adevinta",
-      "position": "Lead Frontend Architect",
-      "url": "https://twitch.tv/midudev",
-      "startDate": "2016-06-01",
-      "endDate": "2022-09-01",
-      "summary": "Lideré una convergencia técnica entre diferentes productos y migramos una arquitectura monolítica a otra más flexible y optimizada. Fomenté buenas prácticas y mejoras en la cultura de rendimiento, además de la entrega rápida de valor a los usuarios.",
+      "name": "Multiplica",
+      "position": "Fullstack Developer Nodejs",
+      "startDate": "2021-10-01",
+      "endDate": "2023-08-30",
+      "summary": "Multiplica siendo una consultora de software multinacional, me permitio compartir experiencia laboral en varios paises y diversos proyectos. Como Nexxdi (Colombia), Vibia (España), Femsa(Mexico). En cada uno trabajando con metodologia agil, buenas practicas de desarrollo como clean code y siempre con la mejore referencias de mi Lider Tecnico.",
       "highlights": ["Started the company"]
     },
     {
-      "name": "Hubii",
-      "position": "Senior FrontEnd Developer",
-      "startDate": "2011-03-01",
-      "endDate": "2016-05-01",
-      "summary": "Desarrollé una plataforma de noticias geolocalizadas y una API para consumir la información. Escalé los servicios para soportar la carga de más de cientos de miles de peticiones al día. Recorté los tiempos de entrega y despliegues a producción a la mitad. Colaboré con Mozilla y Telefónica para desarrollar la primera app para televisores con FirefoxOS.",
+      "name": "Clínica Carita Feliz",
+      "position": "Fullstack Developer",
+      "startDate": "2019-03-01",
+      "endDate": "2021-09-30",
+      "summary": "Clínica Carita Feliz es una de las clinicas mas importantes de la region de Piura. Aqui estuve a cargo de desarrollar todas las funcionalidades que abarcan la atencion medica tanto ambulatoria y hospitalaria. Tambien conocí todos los flujos del proceso de seguros y facturación. Tuve oportunidad de trabajar tanto en front, back, devops. Aqui conoci todo lo necesario para mi crecimiento profesional.",
       "highlights": ["Started the company"]
     }
   ],
@@ -68,14 +76,14 @@
   ],
   "education": [
     {
-      "institution": "Universitat Oberta de Catalunya",
-      "url": "https://www.uoc.edu/portal/es/index.html",
-      "area": "Ingeniero de Software",
-      "studyType": "Bachelor",
-      "startDate": "2003-01-01",
-      "endDate": "2009-01-01",
+      "institution": "Universidad Nacional de Piura - Peru",
+      "url": "https://www.unp.edu.pe/unp/",
+      "area": "Ingeniería Informática",
+      "studyType": "Bachiller",
+      "startDate": "2013-03-01",
+      "endDate": "2019-01-01",
       "score": "4.0",
-      "courses": ["DB1101 - Basic SQL"]
+      "courses": [""]
     }
   ],
   "awards": [
@@ -106,22 +114,22 @@
   "skills": [
     {
       "name": "HTML",
-      "level": "Master",
+      "level": "Intermedio",
       "keywords": ["Desarrollo Web", "Frontend"]
     },
     {
       "name": "CSS",
-      "level": "Master",
+      "level": "Intermedio",
       "keywords": ["Desarrollo Web", "Frontend", "Diseño Responsive"]
     },
     {
       "name": "JavaScript",
-      "level": "Master",
+      "level": "Intermedio",
       "keywords": ["Desarrollo Web", "Frontend", "Backend", "Fullstack"]
     },
     {
       "name": "Tailwind",
-      "level": "Avanzado",
+      "level": "Intermedio",
       "keywords": [
         "Desarrollo Web",
         "Frontend",
@@ -131,7 +139,7 @@
     },
     {
       "name": "TypeScript",
-      "level": "Avanzado",
+      "level": "Intermedio",
       "keywords": [
         "Desarrollo Web",
         "Frontend",
@@ -141,12 +149,17 @@
     },
     {
       "name": "Node",
-      "level": "Avanzado",
+      "level": "Intermedio",
       "keywords": ["Desarrollo Web", "Backend", "JavaScript", "Servidor"]
     },
     {
-      "name": "MySQL",
-      "level": "Avanzado",
+      "name": "Java",
+      "level": "Intermedio",
+      "keywords": ["Desarrollo Web", "Backend", "JavaScript", "Servidor"]
+    },
+    {
+      "name": "PostgreSql",
+      "level": "Intermedio",
       "keywords": [
         "Bases de Datos",
         "SQL",
@@ -170,8 +183,8 @@
       ]
     },
     {
-      "name": "Next.js",
-      "level": "Avanzado",
+      "name": "Angular",
+      "level": "Intermedio",
       "keywords": [
         "Desarrollo Web",
         "Frontend",
@@ -181,19 +194,24 @@
       ]
     },
     {
-      "name": "React",
-      "level": "Avanzado",
+      "name": "Astro",
+      "level": "Intermedio",
       "keywords": ["Desarrollo Web", "Frontend", "JavaScript Library", "UI"]
+    },
+    {
+      "name": "Aws",
+      "level": "Intermedio",
+      "keywords": ["Servidor", "Cloud", "AWS"]
     }
   ],
   "languages": [
     {
       "language": "Spanish",
-      "fluency": "Native speaker"
+      "fluency": "Nativo"
     },
     {
       "language": "English",
-      "fluency": "Advanced"
+      "fluency": "Tecnico"
     }
   ],
   "interests": [
