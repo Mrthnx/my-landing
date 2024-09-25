@@ -232,6 +232,7 @@
       "isActive": true,
       "description": "PDM monitor es una plataforma de monitoreo sobre el analisis de vibraciones.",
       "highlights": ["PDM Monitor", "Analisis de vibraciones"],
+      "github": "",
       "url": "https://pdmmonitor.com/"
     },
     {
@@ -239,6 +240,7 @@
       "isActive": true,
       "description": "Empresa con mas de 20 años de experiencia en el sector salud, dedicada al cuidado integral de la vida y la salud de las personas.",
       "highlights": ["Carita Feliz", "Salud", "Atencion Medica"],
+      "github": "",
       "url": "https://clinicacaritafeliz.com/"
     }
   ]
