@@ -1,0 +1,373 @@
+---
+import { User, Briefcase, Code2, FolderOpen, Brain, GraduationCap, Menu, X } from 'lucide-astro'
+
+const NAV_ITEMS = [
+  { label: 'Sobre mí',    href: '#about',      Icon: User },
+  { label: 'Experiencia', href: '#experience', Icon: Briefcase },
+  { label: 'Habilidades', href: '#skills',     Icon: Code2 },
+  { label: 'Proyectos',   href: '#projects',   Icon: FolderOpen },
+  { label: 'Enfoque',     href: '#workstyle',  Icon: Brain },
+  { label: 'Educación',   href: '#education',  Icon: GraduationCap },
+]
+---
+
+<header class="nav-header no-print" id="nav-header">
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+
+    <!-- Logo -->
+    <a href="#" class="nav-logo" aria-label="Ir al inicio">
+      <span class="logo-initials">ML</span>
+      <span class="logo-dot" aria-hidden="true"></span>
+    </a>
+
+    <div class="nav-divider" aria-hidden="true"></div>
+
+    <!-- Desktop links -->
+    <ul class="nav-links" id="nav-links" role="list">
+      {NAV_ITEMS.map(({ label, href, Icon }) => (
+        <li role="listitem">
+          <a
+            class="nav-link"
+            href={href}
+            data-section={href.replace('#', '')}
+            aria-label={label}
+          >
+            <Icon size={14} aria-hidden="true" />
+            <span>{label}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile toggle -->
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="nav-links"
+    >
+      <Menu size={18} id="icon-open" aria-hidden="true" />
+      <X    size={18} id="icon-close" class="hidden" aria-hidden="true" />
+    </button>
+
+  </nav>
+</header>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+  <ul class="drawer-links" role="list">
+    {NAV_ITEMS.map(({ label, href, Icon }) => (
+      <li role="listitem">
+        <a class="drawer-link" href={href} data-section={href.replace('#', '')}>
+          <span class="drawer-icon"><Icon size={16} aria-hidden="true" /></span>
+          <span>{label}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  const navbar  = document.getElementById('navbar')!
+  const toggle  = document.getElementById('nav-toggle')!
+  const drawer  = document.getElementById('mobile-drawer')!
+  const iconOpen  = document.getElementById('icon-open')!
+  const iconClose = document.getElementById('icon-close')!
+
+  // Scroll → add shadow/ring to pill
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40)
+  }, { passive: true })
+
+  // Mobile drawer
+  const openDrawer = () => {
+    drawer.classList.add('open')
+    drawer.setAttribute('aria-hidden', 'false')
+    toggle.setAttribute('aria-expanded', 'true')
+    iconOpen.classList.add('hidden')
+    iconClose.classList.remove('hidden')
+    document.body.style.overflow = 'hidden'
+  }
+
+  const closeDrawer = () => {
+    drawer.classList.remove('open')
+    drawer.setAttribute('aria-hidden', 'true')
+    toggle.setAttribute('aria-expanded', 'false')
+    iconOpen.classList.remove('hidden')
+    iconClose.classList.add('hidden')
+    document.body.style.overflow = ''
+  }
+
+  toggle.addEventListener('click', () => {
+    drawer.classList.contains('open') ? closeDrawer() : openDrawer()
+  })
+
+  drawer.querySelectorAll('a').forEach(link => link.addEventListener('click', closeDrawer))
+
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer()
+  })
+
+  // Active section via IntersectionObserver
+  const sections = document.querySelectorAll<HTMLElement>('section[id]')
+  const desktopLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link')
+  const drawerLinks  = document.querySelectorAll<HTMLAnchorElement>('.drawer-link')
+
+  const setActive = (id: string) => {
+    ;[...desktopLinks, ...drawerLinks].forEach(link => {
+      link.classList.toggle('active', link.dataset.section === id)
+      link.setAttribute('aria-current', link.dataset.section === id ? 'page' : 'false')
+    })
+  }
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id) })
+    },
+    { rootMargin: '-25% 0px -65% 0px', threshold: 0 }
+  )
+
+  sections.forEach(s => observer.observe(s))
+</script>
+
+<style>
+  /* ── Header wrapper ─────────────────────────────────────── */
+  .nav-header {
+    position: fixed;
+    top: 1.1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    width: fit-content;
+    max-width: calc(100vw - 2rem);
+  }
+
+  /* ── Pill ───────────────────────────────────────────────── */
+  .navbar {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: rgba(8, 12, 20, 0.75);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    padding: 0.35rem 0.5rem;
+    transition:
+      box-shadow var(--t-base) var(--ease),
+      border-color var(--t-base) var(--ease),
+      background var(--t-base) var(--ease);
+  }
+
+  .navbar.scrolled {
+    background: rgba(8, 12, 20, 0.92);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 0 0 1px rgba(79, 126, 248, 0.08),
+      0 8px 32px rgba(0, 0, 0, 0.45);
+  }
+
+  /* ── Logo ───────────────────────────────────────────────── */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--r-full);
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: background var(--t-fast) var(--ease);
+  }
+
+  .nav-logo:hover { background: rgba(255, 255, 255, 0.05); }
+
+  .logo-initials {
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .logo-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--green);
+    border-radius: 50%;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+    animation: blink 2.4s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  /* ── Divider ────────────────────────────────────────────── */
+  .nav-divider {
+    width: 1px;
+    height: 18px;
+    background: var(--border);
+    flex-shrink: 0;
+    margin: 0 0.1rem;
+  }
+
+  /* ── Desktop nav links ──────────────────────────────────── */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--r-full);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-2);
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      color var(--t-fast) var(--ease),
+      background var(--t-fast) var(--ease);
+  }
+
+  .nav-link :global(svg) {
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
+
+  .nav-link:hover {
+    color: var(--text-1);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-link:hover :global(svg) { opacity: 1; }
+
+  .nav-link.active {
+    color: #93c5fd;
+    background: var(--accent-muted);
+  }
+
+  .nav-link.active :global(svg) {
+    opacity: 1;
+    color: var(--accent);
+  }
+
+  /* ── Mobile toggle ──────────────────────────────────────── */
+  .nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: transparent;
+    border: none;
+    border-radius: var(--r-full);
+    color: var(--text-2);
+    cursor: pointer;
+    transition: color var(--t-fast), background var(--t-fast);
+    flex-shrink: 0;
+  }
+
+  .nav-toggle:hover { color: var(--text-1); background: rgba(255,255,255,0.06); }
+
+  .hidden { display: none !important; }
+
+  /* ── Mobile drawer ──────────────────────────────────────── */
+  .mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 199;
+    background: rgba(8, 12, 20, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s var(--ease);
+  }
+
+  .mobile-drawer.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .drawer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 320px;
+    padding: 0 1.5rem;
+  }
+
+  .drawer-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: var(--r-lg);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-2);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all var(--t-fast) var(--ease);
+  }
+
+  .drawer-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--r-sm);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-3);
+    flex-shrink: 0;
+    transition: all var(--t-fast) var(--ease);
+  }
+
+  .drawer-link:hover,
+  .drawer-link.active {
+    color: var(--text-1);
+    background: var(--surface);
+    border-color: var(--border-hov);
+  }
+
+  .drawer-link:hover .drawer-icon,
+  .drawer-link.active .drawer-icon {
+    background: var(--accent-muted);
+    border-color: var(--accent-border);
+    color: var(--accent);
+  }
+
+  .drawer-link.active { color: #93c5fd; }
+
+  /* ── Responsive breakpoint ──────────────────────────────── */
+  @media (max-width: 700px) {
+    .nav-links  { display: none; }
+    .nav-divider { display: none; }
+    .nav-toggle { display: flex; }
+  }
+
+  @media print { .nav-header { display: none; } }
+</style>

@@ -1,24 +1,24 @@
 {
   "basics": {
     "name": "Marthin Lachira Imán",
-    "label": "Backend Developer con mas de 5 años de experiencia laboral & Asistente de Analista de Vibraciones",
+    "label": "Backend Developer · Node.js · TypeScript · AWS",
     "image": "/me.webp",
     "email": "mrthnx96@gmail.com",
-    "phone": "+51 994894608",
+    "phone": "+51 917026156",
     "url": "https://marthinlachira.com",
-    "summary": "+5 años de experiencia laboral como Backend Developer. Con sólida formación en Ingeniería Informática y un enfoque especializado en el desarrollo web.Tengo conocimientos destacados en Java, Javascript, Typescript y Postgres. He trabajado en proyectos basados en la nube utilizando servicios de AWS, lo que me ha permitido aprovechar las ventajas de la escalabilidad, la disponibilidad y la seguridad que ofrece la nube. También tengo experiencia en el uso de repositorios para el versionamiento de proyectos, lo que garantiza un seguimiento preciso y una colaboración efectiva dentro del equipo de desarrollo",
+    "summary": "Backend Developer con más de 6 años de experiencia construyendo sistemas escalables, resilientes y orientados a negocio, principalmente con Node.js y TypeScript. Me especializo en arquitecturas basadas en microservicios, integración con terceros y soluciones en la nube (AWS), trabajando en sistemas de alto impacto como plataformas de pagos, onboarding de comercios y servicios transaccionales consumidos por miles de usuarios.",
     "location": {
       "address": "",
-      "postalCode": "60010",
+      "postalCode": "15001",
       "city": "Cajamarca",
-      "countryCode": "ES",
-      "region": "Peru"
+      "countryCode": "PE",
+      "region": "Perú"
     },
     "profiles": [
       {
         "network": "LinkedIn",
         "username": "Marthin Lachira",
-        "url": "https://www.linkedin.com/in/marthin-lachira/"
+        "url": "https://www.linkedin.com/in/marthin-lachira"
       },
       {
         "network": "GitHub",
@@ -29,217 +29,196 @@
   },
   "work": [
     {
-      "name": "Culqi",
+      "name": "METRICA Perú",
       "position": "Backend Developer",
-      "url": "https://afiliate.culqi.com/",
-      "startDate": "2023-09-01",
-      "endDate": null,
-      "summary": "Culqi es una de las pasarelas de pago mas importante del pais. Y mi mision fue desarrollar nuevas funcionalidades para la pasarela de pagos, la cual sera compartida con otra empresa importante en el rubro bancario y asi poder brindar una mejor experiencia de pago para los clientes. El servicio de pagos atravez de links es mi principal proyecto.",
-      "highlights": ["Principal desarrollador del proyecto"]
+      "url": "https://metrica.pe",
+      "startDate": "2025-03-01",
+      "endDate": "2025-11-30",
+      "summary": "Cliente: Culqi — Una de las principales pasarelas de pago del país. Desarrollo de funcionalidades para integración con Yape (links de pago), mejora del onboarding de comercios, mantenimiento del sistema de vouchers digitales (POS y panel) e implementación de mejoras en servicios de autenticación.",
+      "highlights": ["Node.js", "TypeScript", "NestJS", "AWS Lambda", "PostgreSQL", "MongoDB", "Docker", "Jest", "SNS", "SQS", "CI/CD", "GitLab"]
     },
     {
-      "name": "PDM Monitor",
-      "position": "Freelance Fullstack Developer",
-      "url": "https://www.pdmmonitor.com",
-      "startDate": "2021-05-01",
-      "endDate": null,
-      "summary": "PDM monitor es una plataforma de monitoreo sobre el analisis de vibraciones. Aqui me encargo de desarrollar nuevas funcionalidades para que un experto en analisis de vibraciones pueda tomar las mejores decisiones al momento de realizar mantenimientos predictivos.",
-      "highlights": ["Started the company"]
+      "name": "CSTI Corp",
+      "position": "Backend Developer",
+      "url": "",
+      "startDate": "2023-09-01",
+      "endDate": "2025-02-28",
+      "summary": "Cliente: Culqi — Desarrollo de funcionalidades para links de pago, mejora del onboarding de comercios, mantenimiento del sistema de vouchers digitales (POS y panel) y mejora de servicios de autenticación para la pasarela de pagos.",
+      "highlights": ["Node.js", "TypeScript", "NestJS", "AWS Lambda", "EC2", "S3", "PostgreSQL", "MongoDB", "Docker", "Jest", "Express", "GitLab"]
     },
     {
       "name": "Multiplica",
-      "position": "Fullstack Developer Nodejs",
-      "startDate": "2021-10-01",
-      "endDate": "2023-08-30",
-      "summary": "Multiplica siendo una consultora de software multinacional, me permitio compartir experiencia laboral en varios paises y diversos proyectos. Como Nexxdi (Colombia), Vibia (España), Femsa(Mexico). En cada uno trabajando con metodologia agil, buenas practicas de desarrollo como clean code y siempre con la mejore referencias de mi Lider Tecnico.",
-      "highlights": ["Started the company"]
+      "position": "Backend Developer",
+      "url": "",
+      "startDate": "2021-11-01",
+      "endDate": "2023-08-31",
+      "summary": "Consultora multinacional con presencia en varios países. Trabajé con múltiples clientes internacionales: FEMSA (México) — delivery y giftcards con integración a Incomm; Metrorrey — validación de pagos de transporte; Vibia (España) — microservicios y migración desde ERP; Nexxdi (Colombia) — integración con Prime Trust (Bitcoin).",
+      "highlights": ["Node.js", "NestJS", "Fastify", "MongoDB", "PostgreSQL", "MySQL", "AWS Lambda", "Docker", "Redis", "Jest", "OWASP", "SonarQube"]
     },
     {
       "name": "Clínica Carita Feliz",
-      "position": "Fullstack Developer",
+      "position": "Full Stack Developer",
+      "url": "https://clinicacaritafeliz.com/",
       "startDate": "2019-03-01",
-      "endDate": "2021-09-30",
-      "summary": "Clínica Carita Feliz es una de las clinicas mas importantes de la region de Piura. Aqui estuve a cargo de desarrollar todas las funcionalidades que abarcan la atencion medica tanto ambulatoria y hospitalaria. Tambien conocí todos los flujos del proceso de seguros y facturación. Tuve oportunidad de trabajar tanto en front, back, devops. Aqui conoci todo lo necesario para mi crecimiento profesional.",
-      "highlights": ["Started the company"]
+      "endDate": "2021-10-31",
+      "summary": "Desarrollo del sistema médico integral: módulos de atención (urgencias, emergencias, hospitalización), sistema de facturación y cobros, plataforma de pagos online, reservas y monitoreo, integración con aseguradoras y sistema de broadcast de contenido para TVs del centro médico.",
+      "highlights": ["Java", "Spring Boot", "Node.js", "PostgreSQL", "MongoDB", "GraphQL", "Jenkins", "K8S", "MQTT", "Linux"]
     }
   ],
-  "volunteer": [
-    {
-      "organization": "Organization",
-      "position": "Volunteer",
-      "url": "https://organization.com/",
-      "startDate": "2012-01-01",
-      "endDate": "2013-01-01",
-      "summary": "Description…",
-      "highlights": ["Awarded 'Volunteer of the Month'"]
-    }
-  ],
+  "volunteer": [],
   "education": [
     {
-      "institution": "Universidad Nacional de Piura - Peru",
+      "institution": "Universidad Nacional de Piura",
       "url": "https://www.unp.edu.pe/unp/",
       "area": "Ingeniería Informática",
       "studyType": "Bachiller",
       "startDate": "2013-03-01",
       "endDate": "2019-01-01",
-      "score": "4.0",
-      "courses": [""]
+      "score": "",
+      "courses": []
     }
   ],
-  "awards": [
-    {
-      "title": "Award",
-      "date": "2014-11-01",
-      "awarder": "Company",
-      "summary": "There is no spoon."
-    }
-  ],
-  "certificates": [
-    {
-      "name": "Certificate",
-      "date": "2021-11-07",
-      "issuer": "Company",
-      "url": "https://certificate.com"
-    }
-  ],
-  "publications": [
-    {
-      "name": "Publication",
-      "publisher": "Company",
-      "releaseDate": "2014-10-01",
-      "url": "https://publication.com",
-      "summary": "Description…"
-    }
-  ],
+  "awards": [],
+  "certificates": [],
+  "publications": [],
   "skills": [
     {
-      "name": "HTML",
-      "level": "Intermedio",
-      "keywords": ["Desarrollo Web", "Frontend"]
-    },
-    {
-      "name": "CSS",
-      "level": "Intermedio",
-      "keywords": ["Desarrollo Web", "Frontend", "Diseño Responsive"]
-    },
-    {
-      "name": "JavaScript",
-      "level": "Intermedio",
-      "keywords": ["Desarrollo Web", "Frontend", "Backend", "Fullstack"]
-    },
-    {
-      "name": "Tailwind",
-      "level": "Intermedio",
-      "keywords": [
-        "Desarrollo Web",
-        "Frontend",
-        "CSS Framework",
-        "Diseño Responsive"
-      ]
+      "name": "Node.js",
+      "level": "Avanzado",
+      "keywords": ["Backend", "JavaScript", "Servidor"]
     },
     {
       "name": "TypeScript",
-      "level": "Intermedio",
-      "keywords": [
-        "Desarrollo Web",
-        "Frontend",
-        "Backend",
-        "JavaScript Superset"
-      ]
+      "level": "Avanzado",
+      "keywords": ["Backend", "Frontend", "JavaScript Superset"]
     },
     {
-      "name": "Node",
+      "name": "NestJS",
+      "level": "Avanzado",
+      "keywords": ["Backend", "Node.js", "Framework"]
+    },
+    {
+      "name": "Express",
+      "level": "Avanzado",
+      "keywords": ["Backend", "Node.js", "Framework"]
+    },
+    {
+      "name": "Fastify",
       "level": "Intermedio",
-      "keywords": ["Desarrollo Web", "Backend", "JavaScript", "Servidor"]
+      "keywords": ["Backend", "Node.js", "Framework", "Performance"]
     },
     {
       "name": "Java",
       "level": "Intermedio",
-      "keywords": ["Desarrollo Web", "Backend", "JavaScript", "Servidor"]
+      "keywords": ["Backend", "Servidor"]
     },
     {
-      "name": "PostgreSql",
+      "name": "Spring Boot",
       "level": "Intermedio",
-      "keywords": [
-        "Bases de Datos",
-        "SQL",
-        "Almacenamiento de Datos",
-        "Backend"
-      ]
+      "keywords": ["Backend", "Java", "Framework"]
     },
     {
-      "name": "Git",
+      "name": "JavaScript",
       "level": "Avanzado",
-      "keywords": ["Control de Versiones", "Colaboración", "Código Fuente"]
+      "keywords": ["Backend", "Frontend", "Fullstack"]
     },
     {
-      "name": "GitHub",
+      "name": "PostgreSQL",
       "level": "Avanzado",
-      "keywords": [
-        "Control de Versiones",
-        "Colaboración",
-        "Código Fuente",
-        "Git"
-      ]
+      "keywords": ["Base de Datos", "SQL", "Backend"]
+    },
+    {
+      "name": "MongoDB",
+      "level": "Avanzado",
+      "keywords": ["Base de Datos", "NoSQL", "Backend"]
+    },
+    {
+      "name": "MySQL",
+      "level": "Intermedio",
+      "keywords": ["Base de Datos", "SQL", "Backend"]
+    },
+    {
+      "name": "Redis",
+      "level": "Intermedio",
+      "keywords": ["Base de Datos", "Cache", "Backend"]
+    },
+    {
+      "name": "AWS",
+      "level": "Intermedio",
+      "keywords": ["Cloud", "DevOps", "Lambda", "EC2", "S3"]
+    },
+    {
+      "name": "Docker",
+      "level": "Intermedio",
+      "keywords": ["DevOps", "Contenedores", "Cloud"]
+    },
+    {
+      "name": "Kubernetes",
+      "level": "Básico",
+      "keywords": ["DevOps", "Contenedores", "Orquestación"]
+    },
+    {
+      "name": "Jenkins",
+      "level": "Básico",
+      "keywords": ["DevOps", "CI/CD", "Automatización"]
     },
     {
       "name": "Angular",
       "level": "Intermedio",
-      "keywords": [
-        "Desarrollo Web",
-        "Frontend",
-        "React Framework",
-        "SSR",
-        "Static Generation"
-      ]
+      "keywords": ["Frontend", "TypeScript", "Framework"]
     },
     {
-      "name": "Astro",
+      "name": "TypeORM",
       "level": "Intermedio",
-      "keywords": ["Desarrollo Web", "Frontend", "JavaScript Library", "UI"]
+      "keywords": ["Backend", "ORM", "Base de Datos"]
     },
     {
-      "name": "Aws",
+      "name": "GraphQL",
       "level": "Intermedio",
-      "keywords": ["Servidor", "Cloud", "AWS"]
+      "keywords": ["Backend", "API", "Query Language"]
+    },
+    {
+      "name": "Jest",
+      "level": "Intermedio",
+      "keywords": ["Testing", "JavaScript", "Unit Tests"]
+    },
+    {
+      "name": "Git",
+      "level": "Avanzado",
+      "keywords": ["Control de Versiones", "Colaboración"]
+    },
+    {
+      "name": "SonarQube",
+      "level": "Básico",
+      "keywords": ["Calidad de Código", "Seguridad"]
     }
   ],
   "languages": [
     {
-      "language": "Spanish",
+      "language": "Español",
       "fluency": "Nativo"
     },
     {
-      "language": "English",
-      "fluency": "Tecnico"
+      "language": "Inglés",
+      "fluency": "Técnico"
     }
   ],
-  "interests": [
-    {
-      "name": "Wildlife",
-      "keywords": ["Ferrets", "Unicorns"]
-    }
-  ],
-  "references": [
-    {
-      "name": "Jane Doe",
-      "reference": "Reference…"
-    }
-  ],
+  "interests": [],
+  "references": [],
   "projects": [
     {
-      "name": "Pdm Monitor",
+      "name": "PDM Monitor",
       "isActive": true,
-      "description": "PDM monitor es una plataforma de monitoreo sobre el analisis de vibraciones.",
-      "highlights": ["PDM Monitor", "Analisis de vibraciones"],
+      "description": "Plataforma SaaS de monitoreo predictivo para análisis de vibraciones industriales. Permite a especialistas tomar decisiones basadas en datos para mantenimiento predictivo de maquinaria.",
+      "highlights": ["Node.js", "TypeScript", "Angular", "PostgreSQL", "AWS"],
       "github": "",
       "url": "https://pdmmonitor.com/"
     },
     {
-      "name": "Landing Carita Feliz",
+      "name": "Clínica Carita Feliz",
       "isActive": true,
-      "description": "Empresa con mas de 20 años de experiencia en el sector salud, dedicada al cuidado integral de la vida y la salud de las personas.",
-      "highlights": ["Carita Feliz", "Salud", "Atencion Medica"],
+      "description": "Sistema médico integral para clínica con más de 20 años en el sector salud: atención ambulatoria y hospitalaria, facturación, seguros, pagos online y reservas.",
+      "highlights": ["Java", "Spring Boot", "Node.js", "PostgreSQL", "K8S"],
       "github": "",
       "url": "https://clinicacaritafeliz.com/"
     }

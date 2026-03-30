@@ -1,0 +1,248 @@
+---
+import Section from "../Section.astro"
+import {
+  BookOpen,
+  Layers,
+  Repeat2,
+  ShieldCheck,
+  TestTube2,
+  Users,
+  Zap,
+  GitBranch,
+} from 'lucide-astro'
+
+type Principle = {
+  Icon: any
+  title: string
+  description: string
+  color: string
+  tags: string[]
+}
+
+const PRINCIPLES: Principle[] = [
+  {
+    Icon: BookOpen,
+    title: 'Clean Code',
+    description: 'Escribo código que cualquier desarrollador pueda entender, mantener y escalar. Nombres expresivos, funciones pequeñas y responsabilidad única son no negociables.',
+    color: '#3b82f6',
+    tags: ['SOLID', 'Naming', 'Refactoring'],
+  },
+  {
+    Icon: Layers,
+    title: 'Arquitectura escalable',
+    description: 'Diseño sistemas pensando en el crecimiento. Microservicios desacoplados, separación de capas y contratos claros entre servicios para que el sistema evolucione sin fricciones.',
+    color: '#8b5cf6',
+    tags: ['Microservicios', 'Hexagonal', 'DDD'],
+  },
+  {
+    Icon: Zap,
+    title: 'Performance first',
+    description: 'La eficiencia importa desde el primer día. Optimizo queries, gestiono caché con Redis, evito bloqueos y diseño APIs que responden en milisegundos bajo carga real.',
+    color: '#f59e0b',
+    tags: ['Redis', 'Query Opt.', 'Async'],
+  },
+  {
+    Icon: ShieldCheck,
+    title: 'Seguridad por diseño',
+    description: 'Incorporo prácticas de seguridad en cada capa: autenticación robusta, validación estricta de entradas, seguimiento de OWASP Top 10 y análisis de código con SonarQube.',
+    color: '#ef4444',
+    tags: ['OWASP', 'Auth', 'SonarQube'],
+  },
+  {
+    Icon: TestTube2,
+    title: 'Testing como cultura',
+    description: 'Los tests no son opcionales, son parte del contrato. Escribo tests unitarios e integración con Jest para garantizar que el sistema funciona y sigue funcionando.',
+    color: '#22c55e',
+    tags: ['Jest', 'Unit Tests', 'Integration'],
+  },
+  {
+    Icon: Repeat2,
+    title: 'Entrega continua',
+    description: 'Trabajo con CI/CD pipelines para que cada commit sea potencialmente deployable. Automatización de builds, tests y despliegues reduce el riesgo y acelera el ciclo.',
+    color: '#06b6d4',
+    tags: ['CI/CD', 'GitLab', 'Docker'],
+  },
+  {
+    Icon: GitBranch,
+    title: 'Git Flow y versionado',
+    description: 'Historial de commits limpio y semántico, branches organizadas, pull requests descriptivos. El repositorio es documentación viva del equipo.',
+    color: '#f97316',
+    tags: ['Git Flow', 'Convencional', 'PRs'],
+  },
+  {
+    Icon: Users,
+    title: 'Trabajo en equipo',
+    description: 'Comunicación clara, documentación en Swagger, code reviews constructivos y metodología ágil. Colaboro con frontend, QA y producto para entregar valor real.',
+    color: '#ec4899',
+    tags: ['Agile', 'Swagger', 'Code Review'],
+  },
+]
+---
+
+<Section title="Mi forma de trabajo" id="workstyle">
+  <p class="section-intro">
+    Más allá del stack técnico, mi diferencial está en <strong>cómo</strong> construyo software. 
+    Estos son los principios que guían mi trabajo en cada proyecto.
+  </p>
+
+  <div class="principles-grid">
+    {PRINCIPLES.map(({ Icon, title, description, color, tags }) => (
+      <div class="principle-card" style={`--accent: ${color}`}>
+        <div class="card-top">
+          <div class="principle-icon">
+            <Icon size={22} />
+          </div>
+          <h3 class="principle-title">{title}</h3>
+        </div>
+        <p class="principle-description">{description}</p>
+        <div class="principle-tags">
+          {tags.map(tag => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</Section>
+
+<style>
+  .section-intro {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #94a3b8;
+    margin-bottom: 2.5rem;
+    max-width: 680px;
+  }
+
+  .section-intro strong {
+    color: #e2e8f0;
+    font-weight: 600;
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Card */
+  .principle-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    transition: all var(--t-base) var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .principle-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 40%, transparent));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .principle-card:hover {
+    background: var(--surface-hov);
+    border-color: color-mix(in srgb, var(--accent) 20%, var(--border-hov));
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .principle-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Card top */
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .principle-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .principle-card:hover .principle-icon {
+    background: color-mix(in srgb, var(--accent) 18%, transparent);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 25%, transparent);
+  }
+
+  .principle-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  /* Description */
+  .principle-description {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #64748b;
+    margin: 0;
+    flex: 1;
+  }
+
+  /* Tags */
+  .principle-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: auto;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .principles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .principle-card {
+      padding: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-intro {
+      font-size: 0.9rem;
+    }
+
+    .principle-card {
+      padding: 1rem;
+    }
+  }
+</style>

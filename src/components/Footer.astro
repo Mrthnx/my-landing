@@ -1,0 +1,269 @@
+---
+import { basics } from "@cv"
+import { Mail, Phone, MapPin, Heart } from 'lucide-astro'
+import LinkedIn from "@/icons/LinkedIn.astro"
+import GitHub from "@/icons/GitHub.astro"
+
+const { name, email, phone, location, profiles } = basics
+const { city, region } = location
+
+const githubProfile = profiles.find(p => p.network === 'GitHub')
+const linkedinProfile = profiles.find(p => p.network === 'LinkedIn')
+
+const year = new Date().getFullYear()
+---
+
+<footer class="footer no-print">
+  <div class="footer-inner">
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-logo">ML<span class="brand-dot"></span></div>
+        <p class="brand-tagline">Construyendo sistemas escalables<br />con Node.js, TypeScript y AWS</p>
+      </div>
+
+      <div class="footer-contact">
+        <h4 class="footer-heading">Contacto</h4>
+        <ul class="contact-list">
+          {email && (
+            <li>
+              <a href={`mailto:${email}`} class="contact-link">
+                <Mail size={15} />
+                <span>{email}</span>
+              </a>
+            </li>
+          )}
+          {phone && (
+            <li>
+              <a href={`tel:${phone}`} class="contact-link">
+                <Phone size={15} />
+                <span>{phone}</span>
+              </a>
+            </li>
+          )}
+          <li>
+            <span class="contact-link static">
+              <MapPin size={15} />
+              <span>{city}, {region}</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4 class="footer-heading">Redes</h4>
+        <div class="social-links">
+          {linkedinProfile && (
+            <a
+              href={linkedinProfile.url}
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="LinkedIn"
+            >
+              <LinkedIn />
+              <span>LinkedIn</span>
+            </a>
+          )}
+          {githubProfile && (
+            <a
+              href={githubProfile.url}
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="GitHub"
+            >
+              <GitHub />
+              <span>GitHub</span>
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        © {year} {name}. Hecho con
+        <Heart size={13} class="heart" />
+        usando Astro &amp; TypeScript.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem 1.5rem;
+  }
+
+  /* Top row */
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Brand */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .brand-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    width: fit-content;
+  }
+
+  .brand-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #22c55e;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    -webkit-text-fill-color: #22c55e;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .brand-tagline {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: #475569;
+    margin: 0;
+  }
+
+  /* Footer headings */
+  .footer-heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #475569;
+    margin: 0 0 1rem 0;
+  }
+
+  /* Contact list */
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact-link:not(.static):hover {
+    color: #94a3b8;
+  }
+
+  .contact-link.static {
+    cursor: default;
+  }
+
+  /* Social links */
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .social-link:hover {
+    color: #94a3b8;
+  }
+
+  /* Bottom */
+  .footer-bottom {
+    text-align: center;
+  }
+
+  .copyright {
+    font-size: 0.78rem;
+    color: #334155;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .copyright :global(.heart) {
+    color: #ef4444;
+    fill: #ef4444;
+    flex-shrink: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-inner {
+      padding: 2.5rem 1.25rem 1.5rem;
+    }
+
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .footer-brand {
+      grid-column: auto;
+    }
+  }
+</style>

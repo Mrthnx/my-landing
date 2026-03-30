@@ -1,192 +1,327 @@
 ---
 import Section from "../Section.astro"
+import { Server, Cloud, Database, Wrench, Monitor } from 'lucide-astro'
+
 import HTML from "@/icons/html.astro"
 import CSS from "@/icons/css.astro"
 import JavaScript from "@/icons/javascript.astro"
 import TypeScript from "@/icons/type.astro"
-import React from "@/icons/react.astro"
 import Node from "@/icons/node.astro"
-import MySQL from "@/icons/sql.astro"
 import Git from "@/icons/git.astro"
 import GitHub from "@/icons/GitHub.astro"
 import Tailwind from "@/icons/tailwind.astro"
-import Next from "@/icons/next.astro"
-import { skills } from "@cv"
-import Swift from "@/icons/swift.astro"
-import SwiftUI from "@/icons/swiftui.astro"
-import Kotlin from "@/icons/kotlin.astro"
-import Flutter from "@/icons/flutter.astro"
 import Angular from "@/icons/Angular.astro"
 import Aws from "@/icons/Aws.astro"
 import AstroIcon from "@/icons/Astro.astro"
 import PostgreSql from "@/icons/PostgreSql.astro"
-import Java from "@/icons/Java.astro" 
+import Java from "@/icons/Java.astro"
 
-const SKILLS_ICONS: Record<string, any> = {
-  HTML,
-  CSS,
-  JavaScript,
-  TypeScript,
-  React,
-  Node,
-  MySQL,
-  Git,
-  GitHub,
-  Next,
-  Tailwind,
-  Swift,
-  SwiftUI,
-  Kotlin,
-  Flutter,
-  Angular,
-  Aws,
-  AstroIcon,
-  PostgreSql,
-  Java
+const TECH_ICONS: Record<string, any> = {
+  'TypeScript': TypeScript,
+  'JavaScript': JavaScript,
+  'Node.js': Node,
+  'Java': Java,
+  'Angular': Angular,
+  'AWS': Aws,
+  'PostgreSQL': PostgreSql,
+  'Git': Git,
+  'GitHub': GitHub,
+  'HTML': HTML,
+  'CSS': CSS,
+  'Tailwind': Tailwind,
+  'Astro': AstroIcon,
 }
+
+type Skill = {
+  name: string
+  level?: string
+}
+
+type Category = {
+  id: string
+  label: string
+  Icon: any
+  color: string
+  skills: Skill[]
+}
+
+const CATEGORIES: Category[] = [
+  {
+    id: 'backend',
+    label: 'Backend',
+    Icon: Server,
+    color: '#3b82f6',
+    skills: [
+      { name: 'Node.js', level: 'Avanzado' },
+      { name: 'TypeScript', level: 'Avanzado' },
+      { name: 'JavaScript', level: 'Avanzado' },
+      { name: 'NestJS', level: 'Avanzado' },
+      { name: 'Express', level: 'Avanzado' },
+      { name: 'Fastify', level: 'Intermedio' },
+      { name: 'Java', level: 'Intermedio' },
+      { name: 'Spring Boot', level: 'Intermedio' },
+      { name: 'GraphQL', level: 'Intermedio' },
+    ],
+  },
+  {
+    id: 'databases',
+    label: 'Bases de Datos',
+    Icon: Database,
+    color: '#06b6d4',
+    skills: [
+      { name: 'PostgreSQL', level: 'Avanzado' },
+      { name: 'MongoDB', level: 'Avanzado' },
+      { name: 'MySQL', level: 'Intermedio' },
+      { name: 'Redis', level: 'Intermedio' },
+      { name: 'TypeORM', level: 'Intermedio' },
+    ],
+  },
+  {
+    id: 'cloud',
+    label: 'Cloud & DevOps',
+    Icon: Cloud,
+    color: '#f59e0b',
+    skills: [
+      { name: 'AWS', level: 'Intermedio' },
+      { name: 'Docker', level: 'Intermedio' },
+      { name: 'CI/CD', level: 'Intermedio' },
+      { name: 'Kubernetes', level: 'Básico' },
+      { name: 'Jenkins', level: 'Básico' },
+    ],
+  },
+  {
+    id: 'frontend',
+    label: 'Frontend',
+    Icon: Monitor,
+    color: '#8b5cf6',
+    skills: [
+      { name: 'Angular', level: 'Intermedio' },
+      { name: 'HTML', level: 'Intermedio' },
+      { name: 'CSS', level: 'Intermedio' },
+      { name: 'Tailwind', level: 'Intermedio' },
+    ],
+  },
+  {
+    id: 'tools',
+    label: 'Herramientas',
+    Icon: Wrench,
+    color: '#22c55e',
+    skills: [
+      { name: 'Git', level: 'Avanzado' },
+      { name: 'GitHub', level: 'Avanzado' },
+      { name: 'Jest', level: 'Intermedio' },
+      { name: 'SonarQube', level: 'Básico' },
+      { name: 'Swagger', level: 'Intermedio' },
+      { name: 'OWASP', level: 'Básico' },
+    ],
+  },
+]
+
+const LEVEL_ORDER: Record<string, number> = { 'Avanzado': 3, 'Intermedio': 2, 'Básico': 1 }
 ---
 
-<Section title="Habilidades">
-  <div class="skills-container">
-    <div class="skills-grid">
-      {
-        skills.map(({ name, level }) => {
-        let iconName = name === "Next.js" ? "Next" : name
-        iconName = iconName === "Astro" ? "AstroIcon" : iconName
-          const Icon = SKILLS_ICONS[iconName]
+<Section title="Habilidades" id="skills">
+  <div class="skills-wrapper">
+    {CATEGORIES.map(({ label, Icon, color, skills }) => (
+      <div class="category-block" style={`--cat-color: ${color}`}>
+        <div class="category-header">
+          <div class="category-icon">
+            <Icon size={18} />
+          </div>
+          <h3 class="category-label">{label}</h3>
+          <span class="category-count">{skills.length}</span>
+        </div>
 
-          return (
-            <div class="skill-card">
-              <div class="skill-icon">
-                {Icon && <Icon />}
+        <div class="skills-grid">
+          {skills.map(({ name, level }) => {
+            const Icon = TECH_ICONS[name]
+            const levelVal = LEVEL_ORDER[level ?? ''] ?? 0
+
+            return (
+              <div class="skill-pill" title={level}>
+                {Icon
+                  ? <div class="skill-tech-icon"><Icon /></div>
+                  : <div class="skill-fallback-icon"><span>{name.slice(0, 2)}</span></div>
+                }
+                <span class="skill-name">{name}</span>
+                {level && (
+                  <div class="skill-dots" aria-label={level}>
+                    {[1,2,3].map(i => (
+                      <span class={`dot ${i <= levelVal ? 'filled' : ''}`}></span>
+                    ))}
+                  </div>
+                )}
               </div>
-              <div class="skill-info">
-                <h4 class="skill-name">{name}</h4>
-                <span class="skill-level">{level}</span>
-              </div>
-            </div>
-          )
-        })
-      }
-    </div>
+            )
+          })}
+        </div>
+      </div>
+    ))}
   </div>
 </Section>
 
 <style>
-  .skills-container {
-    max-width: 100%;
+  .skills-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .skill-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
+  /* Category block */
+  .category-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
     padding: 1.5rem;
+    transition: border-color var(--t-base) var(--ease);
+  }
+
+  .category-block:hover {
+    border-color: color-mix(in srgb, var(--cat-color) 25%, transparent);
+  }
+
+  .category-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  .skill-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  }
-
-  .skill-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-4px);
-    box-shadow: 
-      0 12px 25px rgba(0, 0, 0, 0.15),
-      0 0 0 1px rgba(255, 255, 255, 0.05);
-  }
-
-  .skill-icon {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    border-radius: 12px;
+  .category-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #93c5fd;
-    transition: all 0.3s ease;
+    background: color-mix(in srgb, var(--cat-color) 15%, transparent);
+    color: var(--cat-color);
+    border: 1px solid color-mix(in srgb, var(--cat-color) 25%, transparent);
+    flex-shrink: 0;
   }
 
-  .skill-card:hover .skill-icon {
-    background: rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.3);
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
-  }
-
-  .skill-info {
+  .category-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin: 0;
     flex: 1;
-    min-width: 0;
+  }
+
+  .category-count {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--cat-color);
+    background: color-mix(in srgb, var(--cat-color) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--cat-color) 20%, transparent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+  }
+
+  /* Skills grid */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    padding: 0.45rem 0.875rem 0.45rem 0.6rem;
+    transition: all var(--t-fast) var(--ease);
+    cursor: default;
+  }
+
+  .skill-pill:hover {
+    background: color-mix(in srgb, var(--cat-color) 8%, rgba(255,255,255,0.04));
+    border-color: color-mix(in srgb, var(--cat-color) 30%, transparent);
+    transform: translateY(-1px);
+  }
+
+  .skill-tech-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .skill-tech-icon :global(svg),
+  .skill-tech-icon :global(img) {
+    width: 18px;
+    height: 18px;
+  }
+
+  .skill-fallback-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background: color-mix(in srgb, var(--cat-color) 20%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .skill-fallback-icon span {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--cat-color);
+    line-height: 1;
+    text-transform: uppercase;
   }
 
   .skill-name {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #f1f5f9;
-    margin: 0 0 0.25rem 0;
-    line-height: 1.2;
-  }
-
-  .skill-level {
-    font-size: 0.875rem;
-    color: #94a3b8;
+    font-size: 0.82rem;
     font-weight: 500;
+    color: #cbd5e1;
+    white-space: nowrap;
   }
 
-  @media (max-width: 768px) {
-    .skills-grid {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
+  /* Level dots */
+  .skill-dots {
+    display: flex;
+    gap: 3px;
+    margin-left: 2px;
+  }
 
-    .skill-card {
+  .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    transition: background 0.2s;
+  }
+
+  .dot.filled {
+    background: var(--cat-color);
+    box-shadow: 0 0 4px color-mix(in srgb, var(--cat-color) 60%, transparent);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .category-block {
       padding: 1.25rem;
     }
 
-    .skill-icon {
-      width: 40px;
-      height: 40px;
+    .skills-grid {
+      gap: 0.375rem;
+    }
+
+    .skill-pill {
+      padding: 0.375rem 0.75rem 0.375rem 0.5rem;
     }
 
     .skill-name {
-      font-size: 0.9rem;
-    }
-
-    .skill-level {
-      font-size: 0.8rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .skills-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .skill-card {
-      padding: 1rem;
+      font-size: 0.78rem;
     }
   }
 </style>

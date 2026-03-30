@@ -1,5 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro"
+import Navbar from "@/components/Navbar.astro"
+import Footer from "@/components/Footer.astro"
 
 import About from "@/components/sections/About.astro"
 import Education from "@/components/sections/Education.astro"
@@ -7,28 +9,33 @@ import Experience from "@/components/sections/Experience.astro"
 import Hero from "@/components/sections/Hero.astro"
 import Projects from "@/components/sections/Projects.astro"
 import Skills from "@/components/sections/Skills.astro"
+import WorkStyle from "@/components/sections/WorkStyle.astro"
 import KeyboardManager from "@/components/KeyboardManager.astro"
 
 import { basics } from "@cv"
 const { name, label } = basics
 ---
 
-<Layout title={`Portafolio de ${name} - ${label}`}>
+<Layout title={`${name} · ${label}`}>
+  <Navbar />
+
   <main>
     <Hero />
     <About />
     <Experience />
-    <Education />
-    <Projects />
     <Skills />
+    <Projects />
+    <WorkStyle />
+    <Education />
   </main>
 
+  <Footer />
   <KeyboardManager />
 </Layout>
 
 <style>
   main {
-    padding: 2rem;
+    padding: 5rem 2rem 2rem;
     margin: auto;
     width: 100%;
     max-width: 1200px;
@@ -38,13 +45,13 @@ const { name, label } = basics
 
   @media (width >= 768px) {
     main {
-      padding: 4rem 2rem;
+      padding: 6rem 2rem 2rem;
     }
   }
 
   @media (width >= 1024px) {
     main {
-      padding: 6rem 4rem;
+      padding: 6rem 4rem 2rem;
     }
   }
 </style>
