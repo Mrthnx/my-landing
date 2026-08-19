@@ -95,9 +95,8 @@ const year = new Date().getFullYear()
 <style>
   .footer {
     margin-top: 4rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border);
+    background: var(--surface);
   }
 
   .footer-inner {
@@ -113,7 +112,7 @@ const year = new Date().getFullYear()
     gap: 3rem;
     margin-bottom: 2.5rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid var(--border);
   }
 
   /* Brand */
@@ -126,10 +125,7 @@ const year = new Date().getFullYear()
   .brand-logo {
     font-size: 1.5rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--accent);
     display: inline-flex;
     align-items: center;
     gap: 2px;
@@ -155,7 +151,7 @@ const year = new Date().getFullYear()
   .brand-tagline {
     font-size: 0.85rem;
     line-height: 1.65;
-    color: #475569;
+    color: var(--text-2);
     margin: 0;
   }
 
@@ -165,7 +161,7 @@ const year = new Date().getFullYear()
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #475569;
+    color: var(--text-3);
     margin: 0 0 1rem 0;
   }
 
@@ -184,13 +180,13 @@ const year = new Date().getFullYear()
     align-items: center;
     gap: 0.5rem;
     font-size: 0.85rem;
-    color: #64748b;
+    color: var(--text-2);
     text-decoration: none;
     transition: color 0.2s ease;
   }
 
   .contact-link:not(.static):hover {
-    color: #94a3b8;
+    color: var(--accent);
   }
 
   .contact-link.static {
@@ -209,13 +205,13 @@ const year = new Date().getFullYear()
     align-items: center;
     gap: 0.5rem;
     font-size: 0.85rem;
-    color: #64748b;
+    color: var(--text-2);
     text-decoration: none;
     transition: color 0.2s ease;
   }
 
   .social-link:hover {
-    color: #94a3b8;
+    color: var(--accent);
   }
 
   /* Bottom */
@@ -225,7 +221,7 @@ const year = new Date().getFullYear()
 
   .copyright {
     font-size: 0.78rem;
-    color: #334155;
+    color: var(--text-3);
     margin: 0;
     display: inline-flex;
     align-items: center;

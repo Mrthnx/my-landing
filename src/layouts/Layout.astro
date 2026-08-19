@@ -43,29 +43,29 @@ const { image, summary, url } = basics
   /* ─── Design tokens ──────────────────────────────────────── */
   :root {
     /* Backgrounds */
-    --bg:           #080c14;
-    --surface:      rgba(14, 20, 36, 0.7);
-    --surface-hov:  rgba(18, 26, 46, 0.8);
+    --bg:           #fafafa;
+    --surface:      #ffffff;
+    --surface-hov:  #f5f5f5;
 
     /* Borders */
-    --border:       rgba(255, 255, 255, 0.07);
-    --border-hov:   rgba(255, 255, 255, 0.13);
+    --border:       #e0e0e0;
+    --border-hov:   #cccccc;
 
     /* Text */
-    --text-1: #eef2ff;
-    --text-2: #8892a4;
-    --text-3: #44526a;
+    --text-1: #1a1a1a;
+    --text-2: #666666;
+    --text-3: #999999;
 
-    /* Accent — blue-violet */
-    --accent:        #4f7ef8;
-    --accent-2:      #7c5cf6;
-    --accent-muted:  rgba(79, 126, 248, 0.1);
-    --accent-border: rgba(79, 126, 248, 0.22);
+    /* Accent — orange warm + blue professional */
+    --accent:        #ff6b35;
+    --accent-2:      #0052cc;
+    --accent-muted:  rgba(255, 107, 53, 0.08);
+    --accent-border: rgba(255, 107, 53, 0.2);
 
     /* Status */
-    --green:        #10b981;
-    --green-muted:  rgba(16, 185, 129, 0.1);
-    --green-border: rgba(16, 185, 129, 0.22);
+    --green:        #22c55e;
+    --green-muted:  rgba(34, 197, 94, 0.1);
+    --green-border: rgba(34, 197, 94, 0.2);
 
     /* Radius scale */
     --r-xs: 6px;
@@ -106,23 +106,8 @@ const { image, summary, url } = basics
     margin: 0;
     padding: 0;
     color: var(--text-1);
-    position: relative;
     overflow-x: hidden;
   }
-
-  /* Single ambient glow — no más ruido de colores compitiendo */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 90% 50% at 50% -8%,  rgba(79, 126, 248, 0.11) 0%, transparent 62%),
-      radial-gradient(ellipse 50% 40% at 90% 95%,  rgba(124, 92, 246, 0.06) 0%, transparent 58%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  body > * { position: relative; z-index: 1; }
 
   /* ─── Typography ─────────────────────────────────────────── */
   h1, h2, h3, h4 {
@@ -135,10 +120,7 @@ const { image, summary, url } = basics
     font-size: clamp(2.4rem, 5vw, 3.8rem);
     font-weight: 800;
     letter-spacing: -0.04em;
-    background: linear-gradient(140deg, #ffffff 0%, #c7d4ff 60%, #a5b4fc 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-1);
   }
 
   /* h2 SIN decoración global — la maneja Section.astro de forma scoped */
@@ -168,6 +150,8 @@ const { image, summary, url } = basics
     margin: 0;
     text-wrap: pretty;
   }
+
+  strong { color: var(--text-1); }
 
   /* ─── Print ──────────────────────────────────────────────── */
   .print { display: none !important; }

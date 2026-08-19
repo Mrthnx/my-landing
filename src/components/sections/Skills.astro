@@ -186,7 +186,7 @@ const LEVEL_ORDER: Record<string, number> = { 'Avanzado': 3, 'Intermedio': 2, 'B
     gap: 0.75rem;
     margin-bottom: 1.25rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid var(--border);
   }
 
   .category-icon {
@@ -205,7 +205,7 @@ const LEVEL_ORDER: Record<string, number> = { 'Avanzado': 3, 'Intermedio': 2, 'B
   .category-label {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #e2e8f0;
+    color: var(--text-1);
     margin: 0;
     flex: 1;
   }
@@ -231,7 +231,7 @@ const LEVEL_ORDER: Record<string, number> = { 'Avanzado': 3, 'Intermedio': 2, 'B
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--r-sm);
     padding: 0.45rem 0.875rem 0.45rem 0.6rem;
@@ -240,8 +240,8 @@ const LEVEL_ORDER: Record<string, number> = { 'Avanzado': 3, 'Intermedio': 2, 'B
   }
 
   .skill-pill:hover {
-    background: color-mix(in srgb, var(--cat-color) 8%, rgba(255,255,255,0.04));
-    border-color: color-mix(in srgb, var(--cat-color) 30%, transparent);
+    background: var(--surface-hov);
+    border-color: color-mix(in srgb, var(--cat-color) 40%, transparent);
     transform: translateY(-1px);
   }
 
@@ -282,7 +282,7 @@ const LEVEL_ORDER: Record<string, number> = { 'Avanzado': 3, 'Intermedio': 2, 'B
   .skill-name {
     font-size: 0.82rem;
     font-weight: 500;
-    color: #cbd5e1;
+    color: var(--text-1);
     white-space: nowrap;
   }
 
@@ -297,13 +297,12 @@ const LEVEL_ORDER: Record<string, number> = { 'Avanzado': 3, 'Intermedio': 2, 'B
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--border);
     transition: background 0.2s;
   }
 
   .dot.filled {
     background: var(--cat-color);
-    box-shadow: 0 0 4px color-mix(in srgb, var(--cat-color) 60%, transparent);
   }
 
   /* Responsive */

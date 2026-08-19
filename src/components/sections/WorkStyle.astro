@@ -109,13 +109,13 @@ const PRINCIPLES: Principle[] = [
   .section-intro {
     font-size: 1rem;
     line-height: 1.75;
-    color: #94a3b8;
+    color: var(--text-2);
     margin-bottom: 2.5rem;
     max-width: 680px;
   }
 
   .section-intro strong {
-    color: #e2e8f0;
+    color: var(--text-1);
     font-weight: 600;
   }
 
@@ -139,27 +139,11 @@ const PRINCIPLES: Principle[] = [
     overflow: hidden;
   }
 
-  .principle-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 40%, transparent));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
   .principle-card:hover {
     background: var(--surface-hov);
-    border-color: color-mix(in srgb, var(--accent) 20%, var(--border-hov));
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-  }
-
-  .principle-card:hover::before {
-    opacity: 1;
+    border-color: var(--border-hov);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   }
 
   /* Card top */
@@ -185,13 +169,12 @@ const PRINCIPLES: Principle[] = [
 
   .principle-card:hover .principle-icon {
     background: color-mix(in srgb, var(--accent) 18%, transparent);
-    box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 25%, transparent);
   }
 
   .principle-title {
     font-size: 1rem;
     font-weight: 700;
-    color: #f1f5f9;
+    color: var(--text-1);
     margin: 0;
     line-height: 1.2;
   }
@@ -200,7 +183,7 @@ const PRINCIPLES: Principle[] = [
   .principle-description {
     font-size: 0.85rem;
     line-height: 1.7;
-    color: #64748b;
+    color: var(--text-2);
     margin: 0;
     flex: 1;
   }

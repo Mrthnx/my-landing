@@ -169,10 +169,7 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
     font-weight: 800;
     line-height: 1.1;
     margin: 0;
-    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 50%, #c7d2fe 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-1);
   }
 
   .hero-label {
@@ -188,7 +185,7 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #64748b;
+    color: var(--text-3);
     font-size: 0.9rem;
     font-weight: 400;
   }
@@ -221,43 +218,26 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
   }
 
   .hero-contact-btn.primary {
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-    color: white;
-    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
-  }
-
-  .hero-contact-btn.primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-    transition: left 0.5s;
+    background: var(--accent);
+    color: #ffffff;
+    border: 1px solid var(--accent);
   }
 
   .hero-contact-btn.primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
-  }
-
-  .hero-contact-btn.primary:hover::before {
-    left: 100%;
+    background: #e55a2b;
+    border-color: #e55a2b;
+    transform: translateY(-1px);
   }
 
   .hero-contact-btn.secondary {
     background: var(--surface);
-    border: 1px solid var(--border-hov);
-    color: var(--text-2);
+    border: 1px solid var(--accent);
+    color: var(--accent);
   }
 
   .hero-contact-btn.secondary:hover {
-    background: var(--surface-hov);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: var(--text-1);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: var(--accent-muted);
+    transform: translateY(-1px);
   }
 
   .social-links {
@@ -274,16 +254,15 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--r-sm);
-    color: var(--text-2);
+    color: var(--text-3);
     transition: all var(--t-fast) var(--ease);
   }
 
   .social-link:hover {
-    background: var(--surface-hov);
-    border-color: var(--border-hov);
-    color: var(--text-1);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: var(--accent-muted);
+    border-color: var(--accent-border);
+    color: var(--accent);
+    transform: translateY(-1px);
   }
 
   /* Image */
@@ -305,45 +284,20 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
     height: 100%;
     object-fit: cover;
     border-radius: 24px;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 1;
   }
 
   .image-container:hover img {
-    transform: scale(1.03);
-    box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.5);
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   }
 
-  .image-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 130%;
-    height: 130%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 65%);
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    animation: glow 4s ease-in-out infinite alternate;
-  }
-
-  .image-ring {
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    border-radius: 30px;
-    border: 1px solid rgba(59, 130, 246, 0.15);
-    z-index: 0;
-  }
-
-  @keyframes glow {
-    from { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-    to { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
-  }
+  .image-glow { display: none; }
+  .image-ring { display: none; }
 
   /* Responsive */
   @media (max-width: 768px) {
