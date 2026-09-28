@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "Marthin Lachira Imán",
-    "label": "Backend Developer · Node.js · TypeScript · AWS",
+    "label": "Senior Backend Developer · Node.js · Go · Apache Kafka",
     "image": "/me.webp",
     "email": "mrthnx96@gmail.com",
     "phone": "+51 917026156",
     "url": "https://marthinlachira.com",
-    "summary": "Backend Developer con más de 6 años de experiencia construyendo sistemas escalables, resilientes y orientados a negocio, principalmente con Node.js y TypeScript. Me especializo en arquitecturas basadas en microservicios, integración con terceros y soluciones en la nube (AWS), trabajando en sistemas de alto impacto como plataformas de pagos, onboarding de comercios y servicios transaccionales consumidos por miles de usuarios.",
+    "summary": "Senior Backend Developer con más de 7 años de experiencia construyendo sistemas escalables, resilientes y orientados a negocio, principalmente con Node.js, TypeScript y Go. Me especializo en arquitecturas basadas en microservicios, event-driven architecture (Apache Kafka) y soluciones en la nube (AWS), trabajando en sistemas de alto impacto como plataformas de pagos, gestión de órdenes, facturación electrónica y servicios transaccionales consumidos por miles de usuarios.",
     "location": {
       "address": "",
       "postalCode": "15001",
@@ -28,6 +28,15 @@
     ]
   },
   "work": [
+    {
+      "name": "Rappi",
+      "position": "Senior Backend Developer",
+      "url": "https://www.rappi.com",
+      "startDate": "2025-12-01",
+      "endDate": null,
+      "summary": "Rappi — Una de las principales plataformas de delivery y commerce de Latam. Senior Backend Developer en el equipo de Orders de la vertical Rappi Turbo, responsable de procesos críticos de creación y gestión de órdenes. Diseño y desarrollo de soluciones basadas en Event-Driven Architecture (EDA) con Apache Kafka, integrando dominios de gestión de órdenes, facturación y detección de órdenes fraudulentas para desacoplar procesos y mejorar la trazabilidad del ciclo de vida de las órdenes. Desarrollo y mantenimiento de microservicios de facturación electrónica integrados con entidades fiscales de Chile, México, Perú, Colombia y Argentina. Gestión de despliegues en testing/producción y monitoreo de sistemas distribuidos (CPU, memoria, Redis, Kafka, consumer lag) con análisis y resolución de incidentes en producción.",
+      "highlights": ["Go", "TypeScript", "Node.js", "Apache Kafka", "PostgreSQL", "MySQL", "Snowflake", "Redash"]
+    },
     {
       "name": "METRICA Perú",
       "position": "Backend Developer",
@@ -118,6 +127,11 @@
       "keywords": ["Backend", "Java", "Framework"]
     },
     {
+      "name": "Go",
+      "level": "Intermedio",
+      "keywords": ["Backend", "Go", "Servidor"]
+    },
+    {
       "name": "JavaScript",
       "level": "Avanzado",
       "keywords": ["Backend", "Frontend", "Fullstack"]
@@ -141,6 +155,11 @@
       "name": "Redis",
       "level": "Intermedio",
       "keywords": ["Base de Datos", "Cache", "Backend"]
+    },
+    {
+      "name": "Apache Kafka",
+      "level": "Avanzado",
+      "keywords": ["Mensajería", "Event-Driven", "Backend"]
     },
     {
       "name": "AWS",
@@ -191,6 +210,16 @@
       "name": "SonarQube",
       "level": "Básico",
       "keywords": ["Calidad de Código", "Seguridad"]
+    },
+    {
+      "name": "Snowflake",
+      "level": "Intermedio",
+      "keywords": ["Data Warehouse", "Analytics", "SQL"]
+    },
+    {
+      "name": "Redash",
+      "level": "Intermedio",
+      "keywords": ["BI", "Dashboards", "SQL"]
     }
   ],
   "languages": [
