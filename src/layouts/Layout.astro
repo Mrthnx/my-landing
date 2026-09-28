@@ -1,5 +1,6 @@
 ---
 import { basics } from "@cv"
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title: string
@@ -31,6 +32,7 @@ const { image, summary, url } = basics
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={summary} />
     <meta name="twitter:image" content="" />
+    <Analytics />
   </head>
   <body>
     <slot />
